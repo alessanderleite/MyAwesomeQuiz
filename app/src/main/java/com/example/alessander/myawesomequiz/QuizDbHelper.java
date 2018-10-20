@@ -64,8 +64,8 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
         cv.put(QuestionsTable.COLUMN_OPTION1, question.getOption1());
-        cv.put(QuestionsTable.COLUMN_OPTION1, question.getOption2());
-        cv.put(QuestionsTable.COLUMN_OPTION1, question.getOption3());
+        cv.put(QuestionsTable.COLUMN_OPTION2, question.getOption2());
+        cv.put(QuestionsTable.COLUMN_OPTION3, question.getOption3());
         cv.put(QuestionsTable.COLUMN_ANSWER_NR, question.getAnswerNr());
         db.insert(QuestionsTable.TABLE_NAME, null, cv);
     }
