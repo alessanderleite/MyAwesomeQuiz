@@ -2,20 +2,20 @@ package com.example.alessander.myawesomequiz;
 
 public class Question {
     private String question;
-    private String question1;
-    private String question2;
-    private String question3;
+    private String option1;
+    private String option2;
+    private String option3;
     private int answerNr;
 
-    
+
     public Question() {
     }
 
-    public Question(String question, String question1, String question2, String question3, int answerNr) {
+    public Question(String question, String option1, String option2, String option3, int answerNr) {
         this.question = question;
-        this.question1 = question1;
-        this.question2 = question2;
-        this.question3 = question3;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
         this.answerNr = answerNr;
     }
 
@@ -27,28 +27,28 @@ public class Question {
         this.question = question;
     }
 
-    public String getQuestion1() {
-        return question1;
+    public String getOption1() {
+        return option1;
     }
 
-    public void setQuestion1(String question1) {
-        this.question1 = question1;
+    public void setOption1(String option1) {
+        this.option1 = option1;
     }
 
-    public String getQuestion2() {
-        return question2;
+    public String getOption2() {
+        return option2;
     }
 
-    public void setQuestion2(String question2) {
-        this.question2 = question2;
+    public void setOption2(String option2) {
+        this.option2 = option2;
     }
 
-    public String getQuestion3() {
-        return question3;
+    public String getOption3() {
+        return option3;
     }
 
-    public void setQuestion3(String question3) {
-        this.question3 = question3;
+    public void setOption3(String option3) {
+        this.option3 = option3;
     }
 
     public int getAnswerNr() {
