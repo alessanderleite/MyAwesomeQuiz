@@ -20,7 +20,6 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     public QuizDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
 
     @Override

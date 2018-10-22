@@ -38,6 +38,8 @@ public class QuizActivity extends AppCompatActivity {
     private int score;
     private boolean answered;
 
+    private long backPressedTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +71,7 @@ public class QuizActivity extends AppCompatActivity {
                     if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked()) {
                         checkAnswer();
                     } else {
-                        Toast.makeText(QuizActivity.this, "Please select an answer", Toast.LENGTH_LONG).show();
+                        Toast.makeText(QuizActivity.this, "Please select an answer", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     showNextQuestion();
@@ -111,6 +113,7 @@ public class QuizActivity extends AppCompatActivity {
             score++;
             textViewScore.setText("Score: " + score);
         }
+
         showSolution();
     }
 
@@ -146,5 +149,16 @@ public class QuizActivity extends AppCompatActivity {
         resultIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, resultIntent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finishQuiz();
+        } else {
+            Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
     }
 }
