@@ -26,18 +26,28 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         this.db = db;
 
+        final String SQL_CREATE_CATEGORIES_TABLE = "CREATE TABLE " +
+                CategoriesTable.TABLE_NAME + "( " +
+                CategoriesTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                CategoriesTable.TABLE_NAME + " TEXT " +
+                ")";
+
         final String SQL_CREATE_QUESTIONS_TABLE = "CREATE TABLE " +
-                QuestionsTable.TABLE_NAME + " ( " +
+                QuestionsTable.TABLE_NAME + "( " +
                 QuestionsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 QuestionsTable.COLUMN_QUESTION + " TEXT, " +
                 QuestionsTable.COLUMN_OPTION1 + " TEXT, " +
                 QuestionsTable.COLUMN_OPTION2 + " TEXT, " +
                 QuestionsTable.COLUMN_OPTION3 + " TEXT, " +
                 QuestionsTable.COLUMN_ANSWER_NR + " INTEGER, " +
-                QuestionsTable.COLUMN_DIFFICULTY + " TEXT" +
+                QuestionsTable.COLUMN_DIFFICULTY + " TEXT, " +
+                QuestionsTable.COLUMN_CATEGORY_ID + " INTEGER, " +
+                "FOREING KEY(" + QuestionsTable.COLUMN_CATEGORY_ID + ") REFERENCES " +
+                CategoriesTable.TABLE_NAME + "(" + CategoriesTable._ID + ")" + "ON DELETE CASCADE" +
                 ")";
-
+        db.execSQL(SQL_CREATE_CATEGORIES_TABLE);
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
+        fillCategoriesTable();
         fillQuestionsTable();
     }
 
