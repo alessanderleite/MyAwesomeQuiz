@@ -140,6 +140,9 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 categoryList.add(category);
             } while (c.moveToNext());
         }
+
+        c.close();
+        return categoryList;
     }
 
     public ArrayList<Question> getAllQuestions() {

@@ -31,17 +31,24 @@
         android:id="@+id/button_start_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Quiz"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:text="Start Quiz" />
+
+    <Spinner
+        android:id="@+id/spinner_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_start_quiz"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
 
     <Spinner
         android:id="@+id/spinner_difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner_category"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginBottom="187dp" />
- 
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="110dp" />
 </RelativeLayout>
