@@ -51,9 +51,14 @@ public class StartingScreenActivity extends AppCompatActivity {
     }
 
     private void startQuiz() {
+        Category selectedCategory = (Category) spinnerCategory.getSelectedItem() ;
+        int categoryID = selectedCategory.getId();
+        String categoryName = selectedCategory.getName();
         String difficulty = spinnerDifficulty.getSelectedItem().toString();
 
         Intent intent = new Intent(StartingScreenActivity.this, QuizActivity.class);
+        intent.putExtra(EXTRA_CATEGORY_ID, categoryID);
+        intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
         intent.putExtra(EXTRA_DIFFICULTY, difficulty);
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
     }
